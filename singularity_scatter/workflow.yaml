@@ -1,0 +1,23 @@
+script:
+  class: File
+  path: /Users/anthmam/Desktop/samantha_python/multicontainer/remove_column.py
+
+movieDataset:
+  - class: File
+    path: /Users/anthmam/Desktop/samantha_python/multicontainer/movie_review_nltk.csv
+  - class: File
+    path: /Users/anthmam/Desktop/samantha_python/multicontainer/movie_review_nltk2.csv
+
+processedDataset: [movie_review_nltk_processed.csv, movie_review_nltk_processed2.csv]
+
+logFile: [demo.log, demo2.log]
+
+script2:
+  class: File
+  path: /Users/anthmam/Desktop/samantha_python/multicontainer/plot.py
+
+processedMovieDataset:
+  - class: File
+    path: /Users/anthmam/Desktop/samantha_python/multicontainer/movie_review_nltk.csv
+  - class: File
+    path: /Users/anthmam/Desktop/samantha_python/multicontainer/movie_review_nltk2.csv

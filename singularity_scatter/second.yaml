@@ -1,0 +1,8 @@
+script2:
+  class: File
+  path: /Users/anthmam/Desktop/samantha_python/multicontainer/plot.py
+
+processedMovieDataset:
+  class: File
+  path: /Users/anthmam/Desktop/samantha_python/multicontainer/movie_review_nltk_processed.csv
+
