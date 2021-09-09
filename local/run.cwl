@@ -1,5 +1,5 @@
 #!/usr/bin/env cwl-runner
-cwlVersion: v1.1
+cwlVersion: v1.0
 class: CommandLineTool
 
 inputs:
@@ -28,15 +28,15 @@ inputs:
       prefix: -l  
 
 
-baseCommand: [python3]
+baseCommand: [python]
 
 outputs:
  processed:
   type: File
   outputBinding:
-   glob: "*.csv"
+   glob: movie_review_nltk.csv
 
  log:
   type: File
   outputBinding:
-   glob: "demo*.log"
+   glob: demo.log
