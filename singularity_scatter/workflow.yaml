@@ -18,6 +18,6 @@ script2:
 
 processedMovieDataset:
   - class: File
-    path: /Users/anthmam/Desktop/samantha_python/multicontainer/movie_review_nltk.csv
+    path: /Users/anthmam/Desktop/samantha_python/multicontainer/movie_review_nltk_processed.csv
   - class: File
-    path: /Users/anthmam/Desktop/samantha_python/multicontainer/movie_review_nltk2.csv
+    path: /Users/anthmam/Desktop/samantha_python/multicontainer/movie_review_nltk_processed2.csv
