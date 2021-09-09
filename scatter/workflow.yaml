@@ -1,0 +1,13 @@
+script:
+  class: File
+  path: /Users/anthmam/Desktop/samantha_python/remove_column.py
+
+movieDataset:
+  - class: File
+    path: /Users/anthmam/Desktop/samantha_python/movie_review_nltk.csv
+  - class: File
+    path: /Users/anthmam/Desktop/samantha_python/movie_review_nltk2.csv
+
+processedDataset: [movie_review_nltk_processed.csv, movie_review_nltk_processed2.csv]
+
+logFile: [demo.log, demo2.log]
