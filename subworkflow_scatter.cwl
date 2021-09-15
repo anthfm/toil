@@ -13,17 +13,8 @@ inputs:
   processedDataset: string[]
   logFile: string[]
   script2: File
-  processedMovieDataset: File[]
 
 outputs:
- processed:
-  type: File[]
-  outputSource: subworkflow/processed
-
- log:
-  type: File[]
-  outputSource: subworkflow/log
-
  processedpng:
   type: File[]
   outputSource: subworkflow/processedpng
@@ -33,47 +24,45 @@ steps:
   subworkflow:
     run: 
       class: Workflow
+      requirements:
+        - class: ScatterFeatureRequirement
+        - class: SubworkflowFeatureRequirement
       inputs: 
-        inputds: File
-        processds: string
-        logf: string
-        scr: File
-        scr2: File
+        script: File
+        movieDataset: File
+        processedDataset: string
+        logFile: string
+        script2: File
+
       outputs:
-       processed:
-        type: File
-        outputSource: step1/processed
-
-       log:
-        type: File
-        outputSource: step1/log
-
        processedpng:
         type: File
         outputSource: step2/processedpng
+
 
       steps:
         step1:
           run: first.cwl
           in:
-            movieDataset: inputds
-            processedDataset: processds
-            logFile: logf
-            script: scr
+            script: script
+            movieDataset: movieDataset
+            processedDataset: processedDataset
+            logFile: logFile
           out: [processed, log]
+        
         step2:
           run: second.cwl
           in:
-            script2: scr2
+            script2: script2
             processedMovieDataset: step1/processed
           out: [processedpng]
     
-    scatter: [inputds, processds, logf]
+    scatter: [movieDataset, processedDataset, logFile]
     scatterMethod: dotproduct
     in: 
-      inputds: movieDataset
-      processds: processedDataset
-      logf: logFile
-      scr: script
-      scr2: script2
-    out: [processed, log, processedpng]
+      script: script
+      movieDataset: movieDataset
+      processedDataset: processedDataset
+      logFile: logFile
+      script2: script2
+    out: [processedpng]
